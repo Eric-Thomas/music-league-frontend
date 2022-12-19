@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <style>
+    .header {
+      background-color: purple;
+      color: white;
+    }
+    .body {
+      background-color: white;
+      color: purple;
+    }
+    .form-control {
+      border: 1px solid purple;
+      box-shadow: 0 0 10px purple;
+    }
+    .footer {
+      background-color: purple;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+    .content {
+      padding-bottom: 60px;
+    }
+  </style>
+  <title>Corporate Drones Drone</title>
+  <meta property="og:title" content="Corporate Drones Drone" />
+    <meta property="og:image" content="https://levels.io/content/images/2012/10/WORST-JOBS-FIGHT-CLUB.jpg" />
+
+</head>
+<body>
+  <div class="header p-3">
+    <h1>Corporate Drones Drone</h1>
+  </div>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="form-group">
+          <input type="text" class="form-control" id="filterSearch" placeholder="Filter search">
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="form-group">
+          <textarea class="form-control" id="scrollableTextBox" rows="30" placeholder="Scrollable text box"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer p-3 mt-3">
+    For my beautiful girlfriend Shanice &#60;3
+  </div>
+  <script>
+    const filterSearch = document.getElementById("filterSearch");
+    const scrollableTextBox = document.getElementById("scrollableTextBox");
+    var submissions = []
+
+    filterSearch.addEventListener("keyup", function() {
+      const filter = this.value.toLowerCase();
+      console.log(filter)
+      const filteredData = submissions.filter(item => item.toLowerCase().startsWith(filter));
+      scrollableTextBox.value = filteredData.join("\n");
+    });
+
+    fetch("https://brscvg5a2a.execute-api.us-east-1.amazonaws.com")
+      .then(response => response.json())
+      .then(rounds => {
+        for (const [roundName, results] of Object.entries(rounds)) {
+            for (var i = 0; i < results.length; i++){
+                submissions.push(results[i]["song"] + " - " + results[i]["artist"])
+            }
+        }
+        scrollableTextBox.value = submissions.join("\n");
+      });
+  </script>
+</body>
+</html>
