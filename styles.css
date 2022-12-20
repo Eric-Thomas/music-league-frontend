@@ -15,9 +15,9 @@ a:link {
 }
 
 .songBox {
+    background-color: white !important;
     border: 1px solid purple;
     box-shadow: 0 0 10px purple;
-    background-color: white !important;
 }
 
 .footer {
@@ -36,6 +36,11 @@ a:link {
 
 .votes {
     color: purple;
+}
+
+.title {
+    color: purple;
+    text-align: center;
 }
 
 

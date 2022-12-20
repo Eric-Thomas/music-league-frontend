@@ -15,15 +15,22 @@
         <h1>Corporate Drones Drone</h1>
         <br><u>
       <h2><a href="index.html" style="color: white">Search </a>
-    </u> &nbsp; <u> <a href="rankings.html" style="color: white">Hall of Fame</a></h2></u>
+    </u> &nbsp; <u> <a href="rankings.html" style="color: white">Top Songs</a></h2></u>
     </div>
     <br>
     <div class="container mt-3">
         <div class="row">
-            <div id="rankings" class="col-10 songBox">
-                <h1>Hall of Fame Top 10</h1>
-                <!-- list items will be added here -->
+            <div class="col-10">
+                <h1 id="hallOfFameTitle" class="col-12 title">Top Songs</h1>
             </div>
+            <div class="col-2">
+                <!-- For spacing -->
+            </div>
+        </div>
+        <div class="row">
+            <!-- list items will be added here -->
+            <textarea readonly class="form-control songBox col-10" id="scrollableTextBox" rows="25" placeholder="Scrollable text box">
+                    </textarea>
             <div class="col-2 dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 League Members
