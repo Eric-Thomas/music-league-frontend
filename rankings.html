@@ -2,57 +2,7 @@
 <html>
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <style>
-    a:link {
-      color: purple;
-      background-color: transparent;
-      text-decoration: none;
-    }
-    .header {
-      background-color: purple;
-      color: white;
-    }
-    .body {
-      background-color: white;
-      color: purple;
-    }
-    .form-control {
-      border: 1px solid purple;
-      box-shadow: 0 0 10px purple;
-    }
-    .footer {
-      background-color: purple;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-    .content {
-      padding-bottom: 60px;
-    }
-    .votes {
-      color: purple;
-    }
-
-    /* css for the hall of fame (outer the box inner the list) */
-    #rankings {
-      overflow-y: scroll;
-      text-align: center;
-      border: 1px solid purple;
-      width: 50%;
-      margin: 0 auto;
-    }
-    #rankings > div {
-      border-top: 1px solid purple; 
-      border-bottom: 1px solid purple; 
-      margin: 5px;
-      padding: 5px;
-      text-align: left;
-    
-  }
-  </style>
+  <link rel="stylesheet" href="styles.css">
   <title>Corporate Drones Drone</title>
   <meta property="og:title" content="Corporate Drones Drone" />
     <meta property="og:image" content="https://levels.io/content/images/2012/10/WORST-JOBS-FIGHT-CLUB.jpg" />
@@ -65,7 +15,7 @@
   </div>
   <br>
   <div id="rankings">
-    <h1>Hall of Fame</h1>
+    <h1>Hall of Fame Top 10</h1>
     <!-- list items will be added here -->
   </div>
   <div class="footer p-3 mt-3">
@@ -75,6 +25,7 @@
     fetch("https://brscvg5a2a.execute-api.us-east-1.amazonaws.com")
       .then(response => response.json())
       .then(rounds => {
+        var listItems = []
         for (const [roundName, results] of Object.entries(rounds)) {
             for (var i = 0; i < results.length; i++){
                 //gathers votes, songs, and submitter for hall of fame
@@ -84,15 +35,20 @@
                   <span class="name">${results[i]["song"] + " - " + results[i]["artist"] + " (" + results[i]["submitter_name"] + ")"}</span>
                 `;
                 listItem.setAttribute('data-number', results[i]["number_of_votes"]);  // store the number in a data attribute
-                document.getElementById('rankings').appendChild(listItem)
+                listItems.push(listItem)
             }
         }
 
         //sorts hall of fame
-        const listItems = Array.from(document.querySelectorAll('#rankings > div'));
         listItems.sort((a, b) => b.getAttribute('data-number') - a.getAttribute('data-number'));
+        var count = 0;
         for (const listItem of listItems) {
+          // Only list top 10
+          if (count > 10){
+            break;
+          }
           document.getElementById('rankings').appendChild(listItem);
+          count++;
         }
       });
   </script>
