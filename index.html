@@ -6,7 +6,6 @@
   <title>Corporate Drones Drone</title>
   <meta property="og:title" content="Corporate Drones Drone" />
     <meta property="og:image" content="https://levels.io/content/images/2012/10/WORST-JOBS-FIGHT-CLUB.jpg" />
-
 </head>
 <body>
   <div class="header p-3">
@@ -30,28 +29,7 @@
   <div class="footer p-3 mt-3">
     For my beautiful girlfriend Shanice &#60;3
   </div>
-  <script>
-    const filterSearch = document.getElementById("filterSearch");
-    const scrollableTextBox = document.getElementById("scrollableTextBox");
-    var submissions = []
 
-    filterSearch.addEventListener("keyup", function() {
-      const filter = this.value.toLowerCase();
-      console.log(filter)
-      const filteredData = submissions.filter(item => item.toLowerCase().startsWith(filter));
-      scrollableTextBox.value = filteredData.join("\n");
-    });
-
-    fetch("https://brscvg5a2a.execute-api.us-east-1.amazonaws.com")
-      .then(response => response.json())
-      .then(rounds => {
-        for (const [roundName, results] of Object.entries(rounds)) {
-            for (var i = 0; i < results.length; i++){
-                submissions.push(`${results[i]["song"]}  - ${results[i]["artist"]} (Submitted by ${results[i]["submitter_name"]} ${results[i]["number_of_votes"]} votes)`)
-            }
-        }
-        scrollableTextBox.value = submissions.join("\n");
-      });
-  </script>
+  <script src="index.js"></script>
 </body>
 </html>
