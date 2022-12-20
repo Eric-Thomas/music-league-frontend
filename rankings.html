@@ -30,7 +30,27 @@
       width: 100%;
     }
     .content {
-      padding-bottom: 60px; 
+      padding-bottom: 60px;
+    }
+    .votes {
+      color: purple;
+    }
+
+    /* css for the hall of fame (outer the box inner the list) */
+    #rankings {
+      overflow-y: scroll;
+      text-align: center;
+      border: 1px solid purple;
+      width: 50%;
+      margin: 0 auto;
+    }
+    #rankings > div {
+      border-top: 1px solid purple; 
+      border-bottom: 1px solid purple; 
+      margin: 5px;
+      padding: 5px;
+      text-align: left;
+    
   }
   </style>
   <title>Corporate Drones Drone</title>
@@ -43,44 +63,37 @@
     <h1>Corporate Drones Drone</h1>
     <br><u><h2><a href="index.html" style="color: white">Search </a></u> &nbsp; <u> <a href="rankings.html" style="color: white">Hall of Fame</a></h2></u>
   </div>
-  <div class="container mt-3">
-    <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-12">
-        <div class="form-group">
-          <input type="text" class="form-control" id="filterSearch" placeholder="Filter search">
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-12 col-lg-12">
-        <div class="form-group">
-          <textarea class="form-control" id="scrollableTextBox" rows="30" placeholder="Scrollable text box"></textarea>
-        </div>
-      </div>
-    </div>
+  <br>
+  <div id="rankings">
+    <h1>Hall of Fame</h1>
+    <!-- list items will be added here -->
   </div>
   <div class="footer p-3 mt-3">
-    For my beautiful girlfriend Shanice &#60;3
+    Daniy is the SHIT!
   </div>
   <script>
-    const filterSearch = document.getElementById("filterSearch");
-    const scrollableTextBox = document.getElementById("scrollableTextBox");
-    var submissions = []
-
-    filterSearch.addEventListener("keyup", function() {
-      const filter = this.value.toLowerCase();
-      console.log(filter)
-      const filteredData = submissions.filter(item => item.toLowerCase().startsWith(filter));
-      scrollableTextBox.value = filteredData.join("\n");
-    });
-
     fetch("https://brscvg5a2a.execute-api.us-east-1.amazonaws.com")
       .then(response => response.json())
       .then(rounds => {
         for (const [roundName, results] of Object.entries(rounds)) {
             for (var i = 0; i < results.length; i++){
-                submissions.push(results[i]["song"] + " - " + results[i]["artist"])
+                //gathers votes, songs, and submitter for hall of fame
+                const listItem = document.createElement('div');
+                listItem.innerHTML = `
+                  <span class="votes">${results[i]["number_of_votes"] + " Votes: "}</span>
+                  <span class="name">${results[i]["song"] + " - " + results[i]["artist"] + " (" + results[i]["submitter_name"] + ")"}</span>
+                `;
+                listItem.setAttribute('data-number', results[i]["number_of_votes"]);  // store the number in a data attribute
+                document.getElementById('rankings').appendChild(listItem)
             }
         }
-        scrollableTextBox.value = submissions.join("\n");
+
+        //sorts hall of fame
+        const listItems = Array.from(document.querySelectorAll('#rankings > div'));
+        listItems.sort((a, b) => b.getAttribute('data-number') - a.getAttribute('data-number'));
+        for (const listItem of listItems) {
+          document.getElementById('rankings').appendChild(listItem);
+        }
       });
   </script>
 </body>
