@@ -9,6 +9,7 @@ function show_top_10(response) {
         for (var i = 0; i < results.length; i++) {
             //gathers votes, songs, and submitter for hall of fame
             const listItem = document.createElement('div');
+            listItem.className = "songRow"
             listItem.innerHTML = `
               <span class="votes">${results[i]["number_of_votes"] + " Votes: "}</span>
               <span class="name">${results[i]["song"] + " - " + results[i]["artist"] + " (" + results[i]["submitter_name"] + ")"}</span>

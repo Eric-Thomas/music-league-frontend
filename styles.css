@@ -50,7 +50,7 @@ a:link {
     color: purple;
 }
 
-#rankings>div {
+.songRow {
     border-top: 1px solid purple;
     margin: 5px;
     padding: 5px;
