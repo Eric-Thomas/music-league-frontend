@@ -44,9 +44,14 @@ function populate_dropdown(response) {
 
     let dropDownDiv = document.getElementById("userDropdown")
     for (let leagueMember of leagueMembers) {
-        dropDownItem = document.createElement('a');
+        dropDownItem = document.createElement('button');
         dropDownItem.className = "dropdown-item"
+        dropDownItem.setAttribute("onclick", `alertName(\"${leagueMember}\")`)
         dropDownItem.innerHTML = leagueMember
         dropDownDiv.appendChild(dropDownItem)
     }
+}
+
+function alertName(name) {
+    alert(`${name} was clicked`)
 }
