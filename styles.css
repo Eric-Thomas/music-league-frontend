@@ -38,6 +38,8 @@ a:link {
     border: 1px solid purple;
     width: 50%;
     margin: 0 auto;
+    box-shadow: 0 0 10px purple;
+    color: purple;
   }
   #rankings > div {
     border-top: 1px solid purple; 

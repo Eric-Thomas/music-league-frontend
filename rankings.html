@@ -43,6 +43,7 @@
         listItems.sort((a, b) => b.getAttribute('data-number') - a.getAttribute('data-number'));
         var count = 0;
         for (const listItem of listItems) {
+          // Only list top 10
           if (count > 10){
             break;
           }
