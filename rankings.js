@@ -1,6 +1,7 @@
 fetch("https://brscvg5a2a.execute-api.us-east-1.amazonaws.com")
     .then(response => response.json())
-    .then(response => show_top_10(response));
+    .then(response => show_top_10(response))
+    .then(response => populate_dropdown(response));
 
 
 function show_top_10(response) {
@@ -29,5 +30,23 @@ function show_top_10(response) {
         }
         document.getElementById('rankings').appendChild(listItem);
         count++;
+    }
+    return response
+}
+
+function populate_dropdown(response) {
+    var leagueMembers = new Set()
+    for (const [roundName, results] of Object.entries(response)) {
+        for (var i = 0; i < results.length; i++) {
+            leagueMembers.add(results[i]["submitter_name"])
+        }
+    }
+
+    let dropDownDiv = document.getElementById("userDropdown")
+    for (let leagueMember of leagueMembers) {
+        dropDownItem = document.createElement('a');
+        dropDownItem.className = "dropdown-item"
+        dropDownItem.innerHTML = leagueMember
+        dropDownDiv.appendChild(dropDownItem)
     }
 }

@@ -14,9 +14,10 @@ a:link {
     color: purple;
 }
 
-.form-control {
+.songBox {
     border: 1px solid purple;
     box-shadow: 0 0 10px purple;
+    background-color: white !important;
 }
 
 .footer {
