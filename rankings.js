@@ -7,6 +7,7 @@ fetch("https://brscvg5a2a.execute-api.us-east-1.amazonaws.com")
         return response;
     })
     .then(response => showTopSongs(response))
+    .then(response => showContSongs(response))
     .then(response => populateDropdown(response));
 
 
@@ -23,6 +24,67 @@ function showTopSongs(response) {
 
     // sorts by number of votes
     songs.sort((a, b) => parseInt(b.split(" ")[0]) - parseInt(a.split(" ")[0]));
+
+    scrollableTextBox.value = songs.join("\n")
+    return response
+}
+
+function showContUserSongs(name){
+    var songs = []
+    for (var round of apiResp["rounds"]) {
+        results = round["results"]
+        for (var i = 0; i < results.length; i++) {
+            if (results[i]["number_of_votes"] >= results[i]["voters"].length || results[i]["submitter_name"] != name){
+                continue
+            }
+            score =  results[i]["voters"].length - Math.abs(results[i]["number_of_votes"])
+            if (score == 0){
+                continue
+            }
+            songs.push(`${score} ${results[i]["voters"].length} Voters, ${results[i]["number_of_votes"]} Votes: ${results[i]["song"]} - ${results[i]["artist"]} (${results[i]["submitter_name"]})`)
+        }
+    }
+
+    // Clear current hall of fame and set new title
+    document.getElementById('controversyTitle').innerHTML = `Most Controversial For ${name}`;
+
+    const scrollableTextBox = document.getElementById("box2");
+
+    // sorts by number of votes
+    songs.sort((a, b) => parseInt(b.split(" ")[0]) - parseInt(a.split(" ")[0]));
+
+    //remove controversy score for viewing pleasure
+    for (var i = 0; i < songs.length; i++){
+        songs[i] = songs[i].substring(songs[i].indexOf(' ') + 1)
+    }
+    
+    scrollableTextBox.value = songs.join("\n")
+}
+
+function showContSongs(response) {
+    var songs = []
+    for (var round of response["rounds"]) {
+        results = round["results"]
+        for (var i = 0; i < results.length; i++) {
+            if (results[i]["number_of_votes"] >= results[i]["voters"].length){
+                continue
+            }
+            score =  results[i]["voters"].length - Math.abs(results[i]["number_of_votes"])
+            if (score == 0){
+                continue
+            }
+            songs.push(`${score} ${results[i]["voters"].length} Voters, ${results[i]["number_of_votes"]} Votes: ${results[i]["song"]} - ${results[i]["artist"]} (${results[i]["submitter_name"]})`)
+        }
+    }
+
+    const scrollableTextBox = document.getElementById("box2");
+
+    // sorts by number of votes
+    songs.sort((a, b) => parseInt(b.split(" ")[0]) - parseInt(a.split(" ")[0]));
+    //remove controversy score for viewing pleasure
+    for (var i = 0; i < songs.length; i++){
+        songs[i] = songs[i].substring(songs[i].indexOf(' ') + 1)
+    }
 
     scrollableTextBox.value = songs.join("\n")
     return response
@@ -48,6 +110,7 @@ function populateDropdown(response) {
 }
 
 function populateUserSongs(name) {
+    showContUserSongs(name)
     var songs = []
     for (var round of apiResp["rounds"]) {
         results = round["results"]
