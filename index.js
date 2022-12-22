@@ -4,8 +4,7 @@ var submissions = []
 
 filterSearch.addEventListener("keyup", function() {
     const filter = this.value.toLowerCase();
-    console.log(filter)
-    const filteredData = submissions.filter(item => item.toLowerCase().startsWith(filter));
+    const filteredData = submissions.filter(item => item.toLowerCase().includes(filter));
     scrollableTextBox.value = filteredData.join("\n");
 });
 

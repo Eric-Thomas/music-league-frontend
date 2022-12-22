@@ -30,35 +30,7 @@ a:link {
     width: 100%;
 }
 
-.content {
-    padding-bottom: 60px;
-}
-
-.votes {
-    color: purple;
-}
-
 .title {
     color: purple;
     text-align: center;
-}
-
-
-/* css for the hall of fame (outer the box inner the list) */
-
-#rankings {
-    overflow-y: scroll;
-    text-align: center;
-    border: 1px solid purple;
-    width: 50%;
-    margin: 0 auto;
-    box-shadow: 0 0 10px purple;
-    color: purple;
-}
-
-.songRow {
-    border-top: 1px solid purple;
-    margin: 5px;
-    padding: 5px;
-    text-align: left;
 }
