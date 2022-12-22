@@ -34,3 +34,12 @@ a:link {
     color: purple;
     text-align: center;
 }
+
+.navbar-link {
+    color: white
+}
+
+.compare {
+    height: 50px;
+    width: 50px;
+}
