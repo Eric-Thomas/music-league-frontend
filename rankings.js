@@ -22,11 +22,7 @@ function show_top_10(response) {
 
     // sorts by number of votes
     listItems.sort((a, b) => parseInt(b.split(" ")[0]) - parseInt(a.split(" ")[0]));
-    for (const listItem of listItems) {
-        var childDiv = document.createElement('span');
-        childDiv.className = "songRow"
-        childDiv.innerHTML = listItem
-    }
+
     scrollableTextBox.value = listItems.join("\n")
     return response
 }
@@ -67,10 +63,5 @@ function populateUserSongs(name) {
 
     // sorts by number of votes
     listItems.sort((a, b) => parseInt(b.split(" ")[0]) - parseInt(a.split(" ")[0]));
-    for (const listItem of listItems) {
-        var childDiv = document.createElement('span');
-        childDiv.className = "songRow"
-        childDiv.innerHTML = listItem
-    }
     scrollableTextBox.value = listItems.join("\n")
 }
