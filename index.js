@@ -10,10 +10,11 @@ filterSearch.addEventListener("keyup", function() {
 
 fetch("https://brscvg5a2a.execute-api.us-east-1.amazonaws.com")
     .then(response => response.json())
-    .then(response => populate_search_box(response));
+    .then(response => populateSearchBox(response));
 
-function populate_search_box(response) {
-    for (const [roundName, results] of Object.entries(response)) {
+function populateSearchBox(response) {
+    for (var round of response["rounds"]) {
+        results = round["results"]
         for (var i = 0; i < results.length; i++) {
             submissions.push(`${results[i]["song"]}  - ${results[i]["artist"]} (Submitted by ${results[i]["submitter_name"]} ${results[i]["number_of_votes"]} votes)`)
         }
