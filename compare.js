@@ -62,7 +62,7 @@ function populateCompare(member) {
     for (let leagueMember of leagueMembers) {
         if (leagueMember !== member) {
             let rowDiv = document.createElement('div');
-            rowDiv.setAttribute("class", "row")
+            rowDiv.setAttribute("class", "row d-flex justify-content-between")
             addColumn(rowDiv, member, leagueMember);
             addColumn(rowDiv, leagueMember, member);
             comparisonDiv.appendChild(rowDiv);
@@ -73,21 +73,39 @@ function populateCompare(member) {
 
 function addColumn(rowDiv, voteGiverMember, voteRecieverMember) {
     let column = document.createElement('div');
-    column.setAttribute("class", "col-6 d-flex justify-content-center p-1");
-    let image = document.createElement("img")
-    image.setAttribute("src", userImages[voteGiverMember]);
-    image.setAttribute("class", "img-fluid compare");
-
-    column.appendChild(image);
-
-    let upvotes = getVotesGiven(voteGiverMember, voteRecieverMember);
-    let upvotes_span = document.createElement("span");
-    upvotes_span.innerHTML = `gave ${voteRecieverMember} ${upvotes["total"]} total votes <br> gave ${voteRecieverMember} ${upvotes["upvotes"]} upvotes <br> gave ${voteRecieverMember} ${upvotes["downvotes"]} downvotes <br>`;
-
-    column.appendChild(upvotes_span);
+    column.setAttribute("class", "col-5 p-2 my-2 card");
+    column.appendChild(getImage(voteGiverMember));
+    column.appendChild(getCardBody(voteGiverMember, voteRecieverMember));
 
     rowDiv.appendChild(column);
 
+
+}
+
+function getImage(member) {
+    let image = document.createElement("img");
+    image.setAttribute("src", userImages[member]);
+    image.setAttribute("class", "card-img-top");
+    image.setAttribute("alt", `${member}`);
+    return image
+}
+
+function getCardBody(voteGiverMember, voteRecieverMember) {
+    let cardBody = document.createElement("div");
+    cardBody.setAttribute("class", "card-body");
+    let cardTitle = document.createElement("h5");
+    cardTitle.setAttribute("class", "card-title");
+    cardTitle.innerHTML = `${voteGiverMember} gave ${voteRecieverMember}`
+    cardBody.appendChild(cardTitle);
+
+
+    let cardText = document.createElement("p");
+    cardText.setAttribute("class", "card-text");
+    let upvotes = getVotesGiven(voteGiverMember, voteRecieverMember);
+    cardText.innerHTML = `${upvotes["total"]} total votes <br> ${upvotes["upvotes"]} upvotes <br> ${upvotes["downvotes"]} downvotes`;
+    cardBody.appendChild(cardText);
+
+    return cardBody;
 
 }
 
