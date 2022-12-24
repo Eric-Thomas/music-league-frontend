@@ -1,5 +1,4 @@
 a:link {
-    color: purple;
     background-color: transparent;
     text-decoration: none;
 }
@@ -42,4 +41,8 @@ a:link {
 .compare {
     height: 50px;
     width: 50px;
+}
+
+div {
+    box-sizing: border-box;
 }
