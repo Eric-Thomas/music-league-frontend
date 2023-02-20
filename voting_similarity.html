@@ -25,15 +25,19 @@
     <div id="container" class="container mt-3 mb-auto">
         <div class="row">
             <div class="col-2 dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonLeft" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                League Members
-              </button>
-                <div id="userDropdownLeft" class="dropdown-menu" aria-labelledby="dropdownMenuButtonLeft">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    League Members
+                </button>
+                <div id="userDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <!-- Users will be added here -->
                 </div>
             </div>
-            <div class="col-10" id="memberComparisonDiv">
-                <h1 id="compareTitle" class="title">Select a player to compare</h1>
+            <div class="col-10" id="compareTitle">
+                <h1 id="compareTitle" class="title">Select a player to compare voting similarity</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" id="memberComparisonDiv">
                 <!-- Comparisons go here -->
             </div>
         </div>
@@ -43,7 +47,7 @@
     <br>
     <br>
     <div class="footer mt-5">
-        ERic is back @ it y'all
+        ERic is back @ it y'all!
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

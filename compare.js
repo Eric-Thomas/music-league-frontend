@@ -88,12 +88,12 @@ function populateCompare(member) {
 
 function getComparisonRows(member) {
     rows = []
-    for (let leagueMember of leagueMembers) {
-        if (leagueMember !== member) {
+    for (let leagueMemberToCompare of leagueMembers) {
+        if (leagueMemberToCompare !== member) {
             let rowDiv = document.createElement('div');
             rowDiv.setAttribute("class", "row d-flex justify-content-between")
-            addColumn(rowDiv, member, leagueMember);
-            addColumn(rowDiv, leagueMember, member);
+            addColumn(rowDiv, member, leagueMemberToCompare);
+            addColumn(rowDiv, leagueMemberToCompare, member);
             rows.push(rowDiv);
         }
     }
@@ -110,7 +110,7 @@ function getComparisonRows(member) {
 
 function addColumn(rowDiv, voteGiverMember, voteRecieverMember) {
     let column = document.createElement('div');
-    column.setAttribute("class", "col-5 p-2 my-2 card");
+    column.setAttribute("class", "col-5 p-2 my-2 card purpleShadow");
     column.appendChild(getImage(voteGiverMember));
     column.appendChild(getCardBody(voteGiverMember, voteRecieverMember));
 
@@ -131,7 +131,7 @@ function getCardBody(voteGiverMember, voteRecieverMember) {
     let cardBody = document.createElement("div");
     cardBody.setAttribute("class", "card-body");
     let cardTitle = document.createElement("h5");
-    cardTitle.setAttribute("class", "card-title");
+    cardTitle.setAttribute("class", "card-title purpleText");
     cardTitle.innerHTML = `${voteGiverMember} gave ${voteRecieverMember}`
     cardBody.appendChild(cardTitle);
 
