@@ -26,14 +26,30 @@
         <div class="row">
             <div class="col-2 dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonLeft" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                League Members
-              </button>
-                <div id="userDropdownLeft" class="dropdown-menu" aria-labelledby="dropdownMenuButtonLeft">
+                    League Members
+                </button>
+                <div id="userDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButtonLeft">
                     <!-- Users will be added here -->
                 </div>
             </div>
-            <div class="col-10" id="memberComparisonDiv">
+            <div class="col-10" id="compareTitle">
                 <h1 id="compareTitle" class="title">Select a player to compare</h1>
+            </div>
+        </div>
+        <!-- Radio buttons are hidden until a player is selected -->
+        <div class="row" id="radioButtons" hidden>
+            <div class="paddingLR form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="outgoingRadio" value="outgoingRadio" checked>
+                <label class="form-check-label" for="outgoingRadio">outgoing</label>
+            </div>
+            <div class="paddingLR form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="incomingRadio" value="incomingRadio">
+                <label class="form-check-label" for="incomingRadio">incoming</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-10" id="memberComparisonDiv">
                 <!-- Comparisons go here -->
             </div>
         </div>

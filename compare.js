@@ -30,7 +30,8 @@ fetch("https://brscvg5a2a.execute-api.us-east-1.amazonaws.com")
         return response;
     })
     .then(response => populateLeagueMembers(response))
-    .then(response => populateLeftAndRightDropdown(response));
+    .then(response => populateDropdown())
+    .then(addEventListeners());
 
 function populateLeagueMembers(response) {
     for (var round of response["rounds"]) {
@@ -43,32 +44,68 @@ function populateLeagueMembers(response) {
     return response;
 }
 
-function populateLeftAndRightDropdown(response) {
-    let dropDownDiv = document.getElementById("userDropdownLeft");
+function populateDropdown() {
+    let dropDownDiv = document.getElementById("userDropdown");
     for (let leagueMember of leagueMembers) {
         dropDownItem = document.createElement('button');
         dropDownItem.className = "dropdown-item"
-        dropDownItem.setAttribute("onclick", `populateCompare(\"${leagueMember}\")`)
+        dropDownItem.setAttribute("onclick", `populateCompare(\"${leagueMember}\")`);
         dropDownItem.innerHTML = leagueMember
         dropDownDiv.appendChild(dropDownItem);
     }
 }
 
-function populateCompare(member) {
-    let title = `<h1 id="compareTitle" class="title">${member}</h1>`
-    let comparisonDiv = document.getElementById("memberComparisonDiv");
-    comparisonDiv.innerHTML = title
+function addEventListeners() {
+    let outgoingRadio = document.getElementById("outgoingRadio");
+    outgoingRadio.setAttribute("onclick", "populateCompareOnRadioChange()");
+    let incomingRadio = document.getElementById("incomingRadio");
+    incomingRadio.setAttribute("onclick", "populateCompareOnRadioChange()");
+}
 
+function populateCompareOnRadioChange() {
+    let compareTitle = document.getElementById("compareTitle").innerText;
+    populateCompare(compareTitle);
+}
+
+function populateCompare(member) {
+    // Show radio buttons
+    document.getElementById("radioButtons").hidden = false;
+    // Clear current compare
+    let comparisonDiv = document.getElementById("memberComparisonDiv");
+    comparisonDiv.innerHTML = ""
+
+    // Set title
+    let title = `<h1 id="compareTitle" class="col-10 title">${member}</h1>`;
+    let compareTitle = document.getElementById("compareTitle");
+    compareTitle.innerHTML = title;
+
+    rows = getComparisonRows(member);
+    for (let rowDiv of rows) {
+        comparisonDiv.appendChild(rowDiv);
+    }
+
+}
+
+function getComparisonRows(member) {
+    rows = []
     for (let leagueMember of leagueMembers) {
         if (leagueMember !== member) {
             let rowDiv = document.createElement('div');
             rowDiv.setAttribute("class", "row d-flex justify-content-between")
             addColumn(rowDiv, member, leagueMember);
             addColumn(rowDiv, leagueMember, member);
-            comparisonDiv.appendChild(rowDiv);
+            rows.push(rowDiv);
         }
     }
 
+    let outgoingRadio = document.getElementById("outgoingRadio");
+    let incomingRadio = document.getElementById("incomingRadio");
+    if (outgoingRadio.checked) {
+        rows.sort((a, b) => b.getElementsByTagName("p")[0].innerHTML.split(" ")[0] - a.getElementsByTagName("p")[0].innerHTML.split(" ")[0])
+    } else if (incomingRadio.checked) {
+        rows.sort((a, b) => b.getElementsByTagName("p")[1].innerHTML.split(" ")[0] - a.getElementsByTagName("p")[1].innerHTML.split(" ")[0])
+    }
+    return rows
 }
 
 function addColumn(rowDiv, voteGiverMember, voteRecieverMember) {
@@ -118,7 +155,7 @@ function getVotesGiven(voteGiverMember, voteReciever) {
             if (voteReciever === results[i]["submitter_name"]) {
                 for (var voter of results[i]["voters"]) {
                     if (voter["voter_name"] === voteGiverMember) {
-                        console.log(`${voteGiverMember} gave ${voteReciever} ${voter["num_of_votes"]} votes in ${round["round_name"]}`);
+                        // console.log(`${voteGiverMember} gave ${voteReciever} ${voter["num_of_votes"]} votes in ${round["round_name"]}`);
                         if (voter["num_of_votes"] > 0) {
                             upvotes += voter["num_of_votes"]
                         } else if (voter["num_of_votes"] < 0) {
