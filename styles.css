@@ -46,3 +46,8 @@ a:link {
 div {
     box-sizing: border-box;
 }
+
+.paddingLR {
+    padding-left: 15px;
+    padding-right: 15px;
+}
