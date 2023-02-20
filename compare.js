@@ -63,7 +63,7 @@ function addEventListeners() {
 }
 
 function populateCompareOnRadioChange() {
-    let compareTitle = document.getElementById("compareTitle").innerText;
+    let compareTitle = document.getElementById("compareTitle").innerText.trim();
     populateCompare(compareTitle);
 }
 
