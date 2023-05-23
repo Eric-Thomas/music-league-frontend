@@ -19,7 +19,12 @@ var userImages = {
     "Ryan Van Curen": "https://musicleague-user-assets.b-cdn.net/users/c4f075d75aca409e81cfa2ced375d473/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=bef29858-94af-40a5-90e4-89bad7aa85fc&width=300",
     "Ava Jeanette": "https://musicleague-user-assets.b-cdn.net/users/88e6219ea4c5425e857e3303fd87aff3/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=eb150509-59a3-4158-a337-333100e90b7d&width=300",
     "1225667425": "https://musicleague-user-assets.b-cdn.net/users/38f4206134d04cf38c401600289fe6e8/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=f127f6ad-dd06-47d8-ae08-e5fdaa6902cc&width=300",
-    "Jack Bardash": "https://musicleague-user-assets.b-cdn.net/users/9ec0dd4281ec4c94aabbfa3fce7e4c49/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=2265fcb3-f945-4ff6-ac35-76e416916d63&width=300"
+    "Jack Bardash": "https://musicleague-user-assets.b-cdn.net/users/9ec0dd4281ec4c94aabbfa3fce7e4c49/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=2265fcb3-f945-4ff6-ac35-76e416916d63&width=300",
+    "olivia.vicena": "https://musicleague-user-assets.b-cdn.net/users/d18a7978db7b46379c4edb7cd5801236/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=c6e43044-2421-4a61-9fc7-24fcfdcfd555&width=300",
+    "Julian Irizarry": "https://musicleague-user-assets.b-cdn.net/users/64166843d4b440a58bcacad1336de4c5/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=7948817e-1909-4311-92a3-5d5ceeb1bf39&width=300",
+    "nickharner": "https://musicleague-user-assets.b-cdn.net/users/17cd7444ea2b49c2bfdce9f8f0e5fd22/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=f02110a2-fccf-49bb-93eb-089292837507&width=300",
+    "Maddie Jane": "https://musicleague-user-assets.b-cdn.net/users/f9b0a777a6ea4888bf38380219ae156c/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=dd1c602c-4279-4a3e-9d6f-6f91bb06823a&width=300",
+    "Daniy Lalisa": "https://musicleague-user-assets.b-cdn.net/users/072ab05450064c5698e7c078d8b6bb63/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=58477904-19d5-4871-9f34-023d270ae11e&width=300"
 }
 var leagueMembers = new Set()
 
