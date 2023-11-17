@@ -3,7 +3,7 @@ const scrollableTextBox = document.getElementById("scrollableTextBox");
 var submissions = []
 
 filterSearch.addEventListener("keyup", function() {
-    const filter = this.value.toLowerCase();
+    var filter = this.value.toLowerCase().replace(/[\u2018\u2019]/g, "'");
     const filteredData = submissions.filter(item => item.toLowerCase().includes(filter));
     scrollableTextBox.value = filteredData.join("\n");
 });
