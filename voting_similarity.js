@@ -11,7 +11,6 @@ var userImages = {
     "Brandon Morrow": "https://musicleague-user-assets.b-cdn.net/users/b3e088fa81bd42a2ae8aef8fccf3758b/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=59367fc1-6dff-4ffb-b014-210cf2d6abd9&width=300",
     "David Gamero": "https://musicleague-user-assets.b-cdn.net/users/b7d6fc7b4c9f43d794adb2da04db4d03/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=7e301f70-90bf-4277-b050-fa0a8db4f75d&width=300",
     "Morgan": "https://musicleague-user-assets.b-cdn.net/users/e48d80b5ac384fdf8ab8045291b2e7c6/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=1e76f706-d2f4-462f-8eff-68a3b403d6d8&width=300",
-    "Daniy Bigd": "https://musicleague-user-assets.b-cdn.net/users/072ab05450064c5698e7c078d8b6bb63/images/profile?aspect_ratio=1%3A1&generated=1&height=300&optimizer=image&quality=70&v=240c9129-894c-42f5-ae56-c4ca9e2c3b4c&width=300",
     "JP": "https://musicleague-user-assets.b-cdn.net/users/ee269fb504d34c9d8fcc5f570917fc58/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=62544e4b-8c73-4cb7-8b26-c75d9f0d3295&width=300",
     "Max Springer": "https://musicleague-user-assets.b-cdn.net/users/d5cd292834c5404f9f18db59e7f0d005/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=212eb4e5-3e58-4930-9ee6-89f2f9ac1251&width=300",
     "Jake Alzapiedi": "https://musicleague-user-assets.b-cdn.net/users/383fcb98b3324a3e81d0ebc558789e6e/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=6cad1277-c4db-4e9f-bb32-b5b3537118c6&width=300",
@@ -24,7 +23,14 @@ var userImages = {
     "Julian Irizarry": "https://musicleague-user-assets.b-cdn.net/users/64166843d4b440a58bcacad1336de4c5/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=7948817e-1909-4311-92a3-5d5ceeb1bf39&width=300",
     "nickharner": "https://musicleague-user-assets.b-cdn.net/users/17cd7444ea2b49c2bfdce9f8f0e5fd22/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=f02110a2-fccf-49bb-93eb-089292837507&width=300",
     "Maddie Jane": "https://musicleague-user-assets.b-cdn.net/users/f9b0a777a6ea4888bf38380219ae156c/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=dd1c602c-4279-4a3e-9d6f-6f91bb06823a&width=300",
-    "Daniy Lalisa": "https://musicleague-user-assets.b-cdn.net/users/072ab05450064c5698e7c078d8b6bb63/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=58477904-19d5-4871-9f34-023d270ae11e&width=300"
+    "Daniy Lalisa": "https://musicleague-user-assets.b-cdn.net/users/072ab05450064c5698e7c078d8b6bb63/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=58477904-19d5-4871-9f34-023d270ae11e&width=300",
+    "jacobcathcart-us": "https://musicleague-user-assets.b-cdn.net/users/10131e474c5f461eb6698602bc951259/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=827adbb7-00bc-4bdf-9751-f6c50a5b336a&width=300",
+    "Ana": "https://musicleague-user-assets.b-cdn.net/users/936dc7d4c48e4040869a4693ca8f8ec6/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=4a44437e-7e5a-46bd-bd81-81d72f0f91b3&width=300",
+    "Big Dyl": "https://musicleague-user-assets.b-cdn.net/users/387e0ddf96984a4496b75e5311201b8a/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=57d69bc7-c859-46e8-a218-51a650f1aa9b&width=300",
+    "Olivia LeClair": "https://musicleague-user-assets.b-cdn.net/users/e61309b4fc754b30a69788e761c61cee/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=0dba5491-d74e-4863-8c99-3a82f1709922&width=300",
+    "abby_reeder": "https://musicleague-user-assets.b-cdn.net/users/43527163439749b89a7d8ace819a9aa0/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=c58c9e55-4f1e-473c-b935-65e5660f08f6&width=300",
+    "John Gruber": "https://musicleague-user-assets.b-cdn.net/users/3caf28cad95c440ba166fdafa45689fb/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=886df55c-9348-466b-9694-529017071fc0&width=300",
+    "annikazdon": "https://musicleague-user-assets.b-cdn.net/users/ea51851beaeb45278ef3e8b9ae75a4ac/images/profile?aspect_ratio=1%3A1&height=300&optimizer=image&quality=70&v=fe1a2a6b-67a3-49f1-b99d-20752cf7ae1b&width=300"
 }
 var leagueMembers = new Set()
 
